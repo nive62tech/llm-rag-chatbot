@@ -1,0 +1,17 @@
+Underfitting and overfitting describe two common failure modes in machine learning models. A good model should learn the real structure in the data and generalize to new examples. When the model learns too little, it underfits. When it learns too much — including noise — it overfits. The ideal situation is a balance where the model captures meaningful patterns without memorizing random fluctuations.
+
+Underfitting happens when a model is too simple to represent the underlying relationship in the data. It performs poorly on both training and test datasets because it fails to learn important patterns. Causes include using an overly simple model, very strong regularization, weak or missing features, insufficient training time, or poor feature scaling. Underfitting is strongly connected to **high bias**. High bias means the model makes rigid assumptions about the data and ignores useful structure. Because the model is simple, its predictions do not change much across datasets, so variance is low. In short:
+**Underfitting = High Bias + Low Variance.**
+
+A simple way to imagine bias is assuming all birds can fly and are small. Such a rule ignores ostriches and penguins, leading to systematic errors. The model is consistent, but consistently wrong.
+
+Overfitting is the opposite problem. The model becomes too complex and learns not only the true pattern but also noise and outliers. It performs extremely well on training data but poorly on unseen data. Causes include excessive model complexity, too many features, too little data, lack of regularization, or noisy datasets. Overfitting is tied to **high variance**. A high-variance model reacts strongly to small changes in training data and treats noise as if it were signal. Bias is low because the model is flexible, but this flexibility hurts generalization. In short:
+**Overfitting = Low Bias + High Variance.**
+
+Visually, underfitting looks like a straight line trying to match a curved dataset. It misses the structure entirely. Overfitting looks like a highly wiggly curve that passes through every training point, capturing noise instead of trend. Proper fitting is a smooth curve that follows the main pattern without unnecessary complexity.
+
+The bias–variance tradeoff explains why these problems exist. Increasing model complexity usually reduces bias but increases variance, raising the risk of overfitting. Simplifying the model reduces variance but increases bias, raising the risk of underfitting. The goal is not to eliminate bias or variance entirely, but to balance them so prediction error on new data is minimized.
+
+Imagine predicting house prices from size. A straight-line model might miss curved price trends (underfitting). A high-degree polynomial might chase every data fluctuation (overfitting). A moderately complex curve captures the main relationship without chasing noise. This middle ground represents good generalization.
+
+There are practical strategies to control both issues. To reduce underfitting: use a more expressive model, add meaningful features, reduce regularization strength, train longer, and ensure proper feature scaling. To reduce overfitting: gather more data, simplify the model, apply L1/L2 regularization, use dropout in neural networks, apply early stopping, and clean noisy data. Good machine learning practice is largely about monitoring training vs. validation performance and adjusting complexity until both curves align without diverging.
